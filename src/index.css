@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --shadow: 0 1px 3px rgba(0, 0, 0, .08), 0 1px 2px rgba(0, 0, 0, .06);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, .1), 0 2px 4px rgba(0, 0, 0, .06);
+}
+
+[data-theme="light"] {
+  --bg: #f0f4f8;
+  --s1: #ffffff;
+  --s2: #f7f9fc;
+  --s3: #edf2f7;
+  --bd: #e2e8f0;
+  --tx: #1a202c;
+  --mt: #64748b;
+  --mt2: #94a3b8;
+  --gr: #10b981;
+  --grl: #f0fdf4;
+  --grb: #bbf7d0;
+  --rd: #ef4444;
+  --rdl: #fef2f2;
+  --rdb: #fecaca;
+  --yw: #f59e0b;
+  --ywl: #fffbeb;
+  --ywb: #fde68a;
+  --bl: #3b82f6;
+  --bll: #eff6ff;
+  --blb: #bfdbfe;
+  --pu: #8b5cf6;
+  --pul: #f5f3ff;
+  --pub: #ddd6fe;
+  --tl: #2563eb;
+  --or: #f97316;
+}
+
+[data-theme="dark"] {
+  --bg: #0f1117;
+  --s1: #1e2030;
+  --s2: #252840;
+  --s3: #2d3155;
+  --bd: rgba(255, 255, 255, .09);
+  --tx: #f0f2ff;
+  --mt: #8892b0;
+  --mt2: #5a6480;
+  --gr: #10b981;
+  --grl: rgba(16, 185, 129, .12);
+  --grb: rgba(16, 185, 129, .28);
+  --rd: #ef4444;
+  --rdl: rgba(239, 68, 68, .12);
+  --rdb: rgba(239, 68, 68, .28);
+  --yw: #f59e0b;
+  --ywl: rgba(245, 158, 11, .12);
+  --ywb: rgba(245, 158, 11, .28);
+  --bl: #3b82f6;
+  --bll: rgba(59, 130, 246, .12);
+  --blb: rgba(59, 130, 246, .28);
+  --pu: #8b5cf6;
+  --pul: rgba(139, 92, 246, .12);
+  --pub: rgba(139, 92, 246, .28);
+  --tl: #2563eb;
+  --or: #f97316;
+}
+
+@layer base {
+  body {
+    @apply bg-[var(--bg)] text-[var(--tx)] transition-colors duration-200;
+  }
+}
+
+.glass-card {
+  @apply bg-[var(--s1)] border border-[var(--bd)] rounded-xl shadow-[var(--shadow)];
+}
+
+.btn-primary {
+  @apply bg-[var(--bl)] text-white px-4 py-2 rounded-lg font-semibold hover:opacity-90 transition-all active:scale-95;
+}
+
+.input-field {
+  @apply w-full px-4 py-2 bg-[var(--s1)] border-2 border-[var(--bd)] rounded-lg text-[var(--tx)] outline-none focus:border-[var(--bl)] transition-all;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.3s ease both;
+}
+
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  @page {
+    margin: 0;
+  }
+}
+
+.print-only {
+  display: none;
+}
